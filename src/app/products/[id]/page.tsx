@@ -1,10 +1,10 @@
-interface Params {
+interface ProductParams {
   params: {
     id: string;
   };
 }
 
-export default async function ProductDetail({ params }: Params) {
+export default async function ProductDetail({ params }: ProductParams) {
   const res = await fetch(`https://dummyjson.com/products/${params.id}`);
   const product = await res.json();
 
