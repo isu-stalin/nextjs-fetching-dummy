@@ -1,11 +1,11 @@
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+export default async function UserDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
 
-export default async function UserDetail({ params }: PageProps) {
-  const res = await fetch(`https://dummyjson.com/users/${params.id}`);
+  const res = await fetch(`https://dummyjson.com/users/${id}`);
   const user = await res.json();
 
   return (
