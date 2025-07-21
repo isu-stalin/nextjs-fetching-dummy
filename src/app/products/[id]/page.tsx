@@ -1,13 +1,13 @@
 // src/app/products/[id]/page.tsx
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
+export default async function ProductDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
 
-export default async function ProductDetail({ params }: Params) {
-  const res = await fetch(`https://dummyjson.com/products/${params.id}`);
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
   const product = await res.json();
 
   return (
