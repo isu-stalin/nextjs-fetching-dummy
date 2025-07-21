@@ -1,10 +1,12 @@
-interface ProductParams {
+// src/app/products/[id]/page.tsx
+
+interface Params {
   params: {
     id: string;
   };
 }
 
-export default async function ProductDetail({ params }: ProductParams) {
+export default async function ProductDetail({ params }: Params) {
   const res = await fetch(`https://dummyjson.com/products/${params.id}`);
   const product = await res.json();
 
@@ -45,7 +47,7 @@ export default async function ProductDetail({ params }: ProductParams) {
             ${product.price}
           </p>
           <p style={{ fontSize: 16, color: '#f39c12' }}>
-            rating: {product.rating}
+            Rating: {product.rating}
           </p>
           <button
             style={{
