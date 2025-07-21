@@ -1,12 +1,10 @@
-// src/app/users/[id]/page.tsx
-
-interface Params {
+interface PageProps {
   params: {
     id: string;
   };
 }
 
-export default async function UserDetail({ params }: Params) {
+export default async function UserDetail({ params }: PageProps) {
   const res = await fetch(`https://dummyjson.com/users/${params.id}`);
   const user = await res.json();
 

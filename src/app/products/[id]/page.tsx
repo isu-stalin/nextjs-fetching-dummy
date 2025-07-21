@@ -1,5 +1,3 @@
-// src/app/products/[id]/page.tsx
-
 export default async function ProductDetail({
   params,
 }: {
