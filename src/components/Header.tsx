@@ -1,17 +1,31 @@
-import Link from 'next/link'
-import React from 'react'
+'use client'
+import Link from 'next/link';
 
-const Header = () => {
+export default function Header() {
   return (
-    <div className='h-20 bg-gray-200 flex items-center gap-4 px-10'>
-      <h2>Header</h2>
-      <Link href={"/"}>Home</Link>
-      <Link href={"/about"}>About</Link>
-      <Link href={"/about/news"}>News</Link>
-      <Link href={"/lorem"}>Lorem</Link>
-      <Link href={"/login"}>Login</Link>
-    </div>
-  )
+    <nav
+      style={{
+        backgroundColor: 'white',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+        padding: '16px 24px',
+        display: 'flex',
+        gap: '24px',
+      }}
+    >
+      <Link href="/" style={linkStyle}>Home</Link>
+      <Link href="/posts" style={linkStyle}>Posts</Link>
+      <Link href="/users" style={linkStyle}>Users</Link>
+      <Link href="/products" style={linkStyle}>Products</Link>
+      <Link href="/comments" style={linkStyle}>Comments</Link>
+      <Link href="/login" style={linkStyle}>Login</Link>
+    </nav>
+  );
 }
 
-export default React.memo(Header)
+const linkStyle: React.CSSProperties = {
+  fontSize: '14px',
+  fontWeight: 500,
+  textDecoration: 'none',
+  color: '#1f2937',
+  transition: 'color 0.2s ease-in-out',
+};
